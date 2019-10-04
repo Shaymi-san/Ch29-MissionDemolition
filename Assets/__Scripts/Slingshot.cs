@@ -2,22 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// YOU must implement the Slingshot
 
 public class Slingshot : MonoBehaviour {
-  
+    public GameObject launchPoint;
 
-// Place class variables here
-
-
-
-    private void Awake()
+    void Awake()
     {
+        Transform launchPointTrans = transform.Find("LaunchPoint");
+        launchPoint = launchPointTrans.gameObject;
+        launchPoint.SetActive(false);
+    }
 
+    void OnMouseEnter()
+    {
+        launchPoint.SetActive(true);
+    }
+
+    void OnMouseExit()
+    {
+        launchPoint.SetActive(false);
     }
 
 
-    private void Update()
+    void Update()
     {
  
 
